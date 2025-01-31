@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemDetailView: View {
+    @State var quantityRemaining = Int.random(in: 1...10)
     let itemName: String
     
     var body: some View {
@@ -21,10 +22,13 @@ struct ItemDetailView: View {
                 .font(.system(size: 200))
                 .foregroundColor(.gray)
                 .padding()
+            Text("Quantity remaining: \(quantityRemaining)")
             Spacer()
             
             Button {
-                print("Button tapped")
+                if (quantityRemaining > 0) {
+                    quantityRemaining -= 1
+                }
             } label: {
                 Text("Add one to your cart")
             }
