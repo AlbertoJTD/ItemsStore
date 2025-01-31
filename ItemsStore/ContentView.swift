@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    var itemsStock: [String] = ["Shrimp Chips", "Yogurth", "Bottle of water", "Onions"]
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -16,12 +18,15 @@ struct ContentView: View {
                     .padding()
                 Spacer()
                 
-                NavigationLink(
-                    destination: ItemDetailView(itemName: "Shrimp Chips"),
-                    label: {
-                        Text("Shrimp Chips")
-                    }
-                )
+                ForEach(0..<itemsStock.count) { itemIndex in
+                    NavigationLink(
+                        destination: ItemDetailView(itemName: itemsStock[itemIndex]),
+                        label: {
+                            Text(itemsStock[itemIndex])
+                        }
+                    )
+                    .padding(.bottom, 10)
+                }
                 Spacer()
             }
         }
