@@ -17,7 +17,7 @@ struct ContentView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: ItemDetailView(itemName: "Shrimp Chips message"),
+                    destination: ItemDetailView(itemName: "Shrimp Chips"),
                     label: {
                         Text("Shrimp Chips")
                     }
@@ -25,6 +25,8 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .navigationTitle(Text("Ligaya's Store"))
+        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 
